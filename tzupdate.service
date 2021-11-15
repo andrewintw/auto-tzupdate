@@ -1,0 +1,13 @@
+[Unit]
+Description=Automatic Timezone Detection
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=idle
+ExecStart=/usr/local/sbin/tzupdate.sh
+RemainAfterExit=yes
+
+[Install]
+Alias=tzupdate.service
+WantedBy=multi-user.target
